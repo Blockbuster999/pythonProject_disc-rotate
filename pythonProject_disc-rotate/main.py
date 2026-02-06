@@ -415,8 +415,8 @@ def get_correction_angle(data_path: str, datetime: Tuple[str,str]):
     B = altaz_to_vector(90, 0)  # zenith
     C = altaz_to_vector(36.902835, 180)  # celestial south
 
-    if datetime[0] == "2025-11-08":
-        print("STOPU")
+    # if datetime[0] == "2025-11-08":
+    #     print("STOP")
 
     # to correct the rotation of the image, we must spin the image such that the CN points straight up
     # value indicates CCW angle of displacement from CS to zenith
@@ -441,7 +441,8 @@ def main():
     renamed_folder = "renamed"
     data_path = "2025-2026 10m chart DS corrected.csv"
 
-    # Make sure output folder exists
+    # Make sure folders exist
+    os.makedirs(input_folder, exist_ok=True)
     os.makedirs(rotated_folder, exist_ok=True)
     os.makedirs(crop_folder, exist_ok=True)
     os.makedirs(renamed_folder, exist_ok=True)
